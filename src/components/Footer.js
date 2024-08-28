@@ -11,7 +11,7 @@ const FooterContainer = styled.footer`
 const Footer = () => {
   return (
     <FooterContainer>
-      <p>&copy; 2024 Accessible Store</p>
+      <p>&copy; 2024 Accessible Design Guide</p>
     </FooterContainer>
   );
 };
