@@ -6,16 +6,30 @@ const ResourcesContainer = styled.section`
   text-align: center;
 `;
 
+const ResourceLink = styled.a`
+  display: block;
+  margin: 10px 0;
+  color: #007bff;
+  text-decoration: none;
+
+  &:hover {
+    color: #0056b3;
+  }
+`;
+
 const Resources = () => {
   return (
     <ResourcesContainer>
-      <h2>Resources</h2>
-      <p>Links to helpful tools and articles:</p>
-      <ul>
-        <li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">Contrast Checker</a></li>
-        <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG Guidelines</a></li>
-        <li><a href="https://www.toptal.com/designers/colorfilter" target="_blank" rel="noopener noreferrer">Color Blindness Simulator</a></li>
-      </ul>
+      <h2>Accessibility Resources</h2>
+      <ResourceLink href="https://webaim.org/resources/contrastchecker/" target="_blank">
+        WebAIM Contrast Checker
+      </ResourceLink>
+      <ResourceLink href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">
+        WCAG Guidelines
+      </ResourceLink>
+      <ResourceLink href="https://www.toptal.com/designers/colorfilter" target="_blank">
+        Color Blindness Simulator
+      </ResourceLink>
     </ResourcesContainer>
   );
 };

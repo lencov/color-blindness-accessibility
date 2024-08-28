@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useColorBlind } from '../ColorBlindContext'; // Import the context hook
+import { useColorMode } from '../ColorModeContext';
 
 const HeaderContainer = styled.header`
   background-color: #282c34;
@@ -20,21 +20,13 @@ const NavLinks = styled.nav`
   }
 `;
 
-const VisionToggle = styled.button`
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 10px;
-
-  &:hover {
-    background-color: #0056b3;
-  }
+const VisionToggle = styled.select`
+  margin: 10px;
+  padding: 5px;
 `;
 
 const Header = () => {
-  const { isColorBlindMode, toggleColorBlindMode } = useColorBlind();
+  const { mode, toggleMode, darkMode, toggleDarkMode } = useColorMode();
 
   return (
     <HeaderContainer>
@@ -44,11 +36,20 @@ const Header = () => {
         <Link to="/demo">Demo</Link>
         <Link to="/best-practices">Best Practices</Link>
         <Link to="/resources">Resources</Link>
+        <Link to="/learning">Learning</Link>
         <Link to="/contact">Contact</Link>
       </NavLinks>
-      <VisionToggle onClick={toggleColorBlindMode}>
-        {isColorBlindMode ? "Switch to Normal Vision" : "Switch to Colorblind Vision"}
-      </VisionToggle>
+      <div>
+        <VisionToggle value={mode} onChange={(e) => toggleMode(e.target.value)}>
+          <option value="normal">Normal Vision</option>
+          <option value="deuteranopia">Deuteranopia</option>
+          <option value="protanopia">Protanopia</option>
+          <option value="tritanopia">Tritanopia</option>
+        </VisionToggle>
+        <button onClick={toggleDarkMode}>
+          {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        </button>
+      </div>
     </HeaderContainer>
   );
 };
