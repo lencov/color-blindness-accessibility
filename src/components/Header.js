@@ -33,7 +33,8 @@ const Header = () => {
       <h1>Accessible Design Guide</h1>
       <NavLinks>
         <Link to="/">Home</Link>
-        <Link to="/demo">Demo</Link>
+        <Link to="/good-demo">Good Demo</Link>   {/* New Link */}
+        <Link to="/bad-demo">Bad Demo</Link>     {/* New Link */}
         <Link to="/best-practices">Best Practices</Link>
         <Link to="/resources">Resources</Link>
         <Link to="/learning">Learning</Link>

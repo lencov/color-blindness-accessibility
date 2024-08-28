@@ -4,7 +4,8 @@ import { ColorModeProvider, useColorMode } from './ColorModeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Demo from './pages/Demo';
+import GoodDemo from './pages/GoodDemo';  // Import Good Demo
+import BadDemo from './pages/BadDemo';    // Import Bad Demo
 import BestPractices from './pages/BestPractices';
 import Resources from './pages/Resources';
 import Learning from './pages/Learning';
@@ -23,6 +24,7 @@ function AppContent() {
   return (
     <Router>
       <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
+        {/* Color blindness filters remain the same */}
         <filter id="deuteranopia">
           <feColorMatrix type="matrix"
             values="0.625, 0.375, 0, 0, 0
@@ -49,7 +51,8 @@ function AppContent() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/demo" element={<Demo />} />
+          <Route path="/good-demo" element={<GoodDemo />} />
+          <Route path="/bad-demo" element={<BadDemo />} />
           <Route path="/best-practices" element={<BestPractices />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/learning" element={<Learning />} />
